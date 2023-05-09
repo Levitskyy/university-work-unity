@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerSpawner : NetworkBehaviour {
     [SerializeField] private GameObject playerPrefabA; //add prefab in inspector
     [SerializeField] private GameObject playerPrefabB; //add prefab in inspector
-    [SerializeField] private Transform playerSpawnPointA;
-    [SerializeField] private Transform playerSpawnPointB;
+    [SerializeField] private Transform[] playerSpawnPoints;
     private NetworkObject netObj;
+    private int playersSpawned = 0;
     
     public static PlayerSpawner Singleton;
 
@@ -26,11 +26,11 @@ public class PlayerSpawner : NetworkBehaviour {
         GameObject newPlayer;
         if (prefabId==0){
              newPlayer=(GameObject)Instantiate(playerPrefabA);
-             newPlayer.transform.position = playerSpawnPointA.position;
+             newPlayer.transform.position = playerSpawnPoints[playersSpawned++].position;
         }
         else {
             newPlayer=(GameObject)Instantiate(playerPrefabB);
-            newPlayer.transform.position = playerSpawnPointB.position;
+            newPlayer.transform.position = playerSpawnPoints[playersSpawned++].position;
         }
         netObj=newPlayer.GetComponent<NetworkObject>();
         newPlayer.SetActive(true);

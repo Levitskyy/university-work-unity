@@ -20,6 +20,8 @@ public class PlayerController : NetworkBehaviour
     }
 
     void Update() {
+        if (!IsOwner) return;
+
         if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, groundCheckDistance, groundMask)) {
             isGrounded = true;
         }
@@ -30,6 +32,8 @@ public class PlayerController : NetworkBehaviour
     }
 
     void FixedUpdate() {
+        if (!IsOwner) return;
+        
         transform.Translate(new Vector3(moveVector, 0, 0) * moveSpeed);
     }
 
