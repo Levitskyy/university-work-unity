@@ -681,7 +681,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813807166
 GameObject:
@@ -1566,8 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffdc5aa555580048877fb39ac3fbe72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefabA: {fileID: 8603456981202995624, guid: 47169201cb19e0c4398848f236fe8e83, type: 3}
-  playerPrefabB: {fileID: 0}
+  playerPrefab: {fileID: 8603456981202995624, guid: 47169201cb19e0c4398848f236fe8e83, type: 3}
   playerSpawnPoints:
   - {fileID: 2033578116}
   - {fileID: 969063377}
@@ -1586,7 +1585,7 @@ Transform:
   - {fileID: 2033578116}
   - {fileID: 969063377}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033578115
 GameObject:
@@ -1697,11 +1696,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6623145898335374843, guid: faae2255751c14047b7f44036f513d95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.21
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 6623145898335374843, guid: faae2255751c14047b7f44036f513d95, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7063891044076958745, guid: faae2255751c14047b7f44036f513d95, type: 3}
       propertyPath: liftSpeed

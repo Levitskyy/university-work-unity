@@ -14,7 +14,6 @@ public class Relay : MonoBehaviour
     public static Relay Singleton;
 
     private string joinCode; // Код для присоединения к серверу
-    // Start is called before the first frame update
     private async void Start()
     {
         if (Singleton == null) {
@@ -42,7 +41,7 @@ public class Relay : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartHost();
             Debug.Log("join code: " + joinCode);
-            PlayerSpawner.Singleton.SpawnPlayerServerRpc(0);
+            PlayerSpawner.Singleton.SpawnPlayerServerRpc();
         } catch (RelayServiceException e){
             Debug.Log(e);
         }
@@ -53,7 +52,7 @@ public class Relay : MonoBehaviour
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
             RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
             NetworkManager.Singleton.OnClientConnectedCallback += (ulong u) => {
-                PlayerSpawner.Singleton.SpawnPlayerServerRpc(0);
+                PlayerSpawner.Singleton.SpawnPlayerServerRpc();
             };
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);      
             NetworkManager.Singleton.StartClient();

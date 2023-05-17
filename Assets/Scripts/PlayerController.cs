@@ -12,7 +12,7 @@ public class PlayerController : NetworkBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D col;
     private float moveVector;
-    public bool isGrounded = false;
+    private bool isGrounded = false;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
